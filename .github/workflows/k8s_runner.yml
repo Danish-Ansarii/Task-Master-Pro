@@ -19,3 +19,15 @@ jobs:
     - name: Build with Maven
       run: mvn package --file pom.xml
 
+    - name: Trivy Scan
+      run: trivy fs --format table -o fs.html .
+
+    - name: SonarQube Scan
+      uses: SonarSource/sonarqube-scan-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
+
+   
+
+   
