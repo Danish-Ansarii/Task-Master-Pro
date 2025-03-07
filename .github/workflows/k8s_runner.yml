@@ -37,7 +37,7 @@ jobs:
     
     - name: Build DOcker Image
       run: |
-            docker image build -t danish84464/devDanii:latest .
+            docker image build -t danish84464/devdanii:latest .
     - name: Trivy Docker image scan Scan
       run: trivy fs --format table -o fs.html .
 
@@ -48,7 +48,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Push Docker Image to Docker Hub
-      run: docker push danish84464/devDanii:latest
+      run: docker push danish84464/devdanii:latest
 
 
    
